@@ -1,14 +1,11 @@
 state("Budget Cuts 2")
 {
-    int mission: "GameAssembly.dll", 0x20707B8, 0xB8, 0x0, 0x48;
+    //int mission: "GameAssembly.dll", 0x20707B8, 0xB8, 0x0, 0x48;
 }
 
 start
 {
-    if (current.Scene == "Conductor")
-    {
-        return true;
-    }
+    return current.Scene == "Conductor";
 }
 
 startup
@@ -19,37 +16,21 @@ startup
 
 split
 {
-    if (current.Scene != old.Scene)
-    {
-        return true;
-    }
+    return current.Scene != old.Scene;
 }
 
 isLoading
 {
-    if (current.mission == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return current.loadState;
 }
 
 update
 {
     current.Scene = vars.Helper.Scenes.Active.Name ?? current.Scene;
+    current.loadState = vars.Helper.IsLoading ?? current.loadState;
 }
 
 reset
 {
-    if (current.Scene == "Main Menu BC2")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return current.Scene == "Main Menu BC2";
 }
