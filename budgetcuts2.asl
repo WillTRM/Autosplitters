@@ -85,7 +85,7 @@ update
         vars.consecutiveTrues = 0;
     }
 
-    print(vars.consecutiveTrues.ToString());
+    //print(vars.consecutiveTrues.ToString());
     
 }
 
