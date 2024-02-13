@@ -8,7 +8,7 @@ state("Budget Cuts 2")
 
 start
 {
-    return current.Scene == "Station";
+    return current.Scene == "Conductor";
     vars.notPaused = current.pauseMenuOpen;
 }
 
